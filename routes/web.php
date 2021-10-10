@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return \Inertia\Inertia::render('Home');
+});
+
+Route::prefix('/auth')->name('auth.')->group(function () {
+    Route::get('/redirect', [Controllers\AuthController::class, 'redirect'])->name('redirect');
+    Route::get('/callback', [Controllers\AuthController::class, 'callback'])->name('callback');
 });
