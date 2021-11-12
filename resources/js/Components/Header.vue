@@ -1,7 +1,6 @@
 <template>
     <div class="relative bg-white">
         <div class="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true"></div>
-        <div @click.prevent="open = false" v-show="open" class="hidden sm:block absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
         <div class="relative z-30">
             <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
                 <div>

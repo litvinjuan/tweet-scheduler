@@ -1,4 +1,6 @@
 <template>
+    <div @click.prevent="open = false" v-show="open" class="hidden sm:block absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
+
     <div class="relative inline-block text-left">
         <div>
             <button @click.prevent="open = !open" type="button" class="inline-flex items-center justify-center py-2 bg-white text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" id="menu-button-lg" aria-expanded="true" aria-haspopup="true">
