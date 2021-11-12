@@ -1,4 +1,6 @@
 <template>
+    <div @click.prevent="open = false" v-show="open" class="hidden sm:block absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
+
     <div class="relative bg-white">
         <div class="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true"></div>
         <div class="relative z-30">
@@ -11,7 +13,7 @@
                 </div>
 
                 <div class="-mr-2 -my-2 md:hidden flex items-center">
-                    <img class="rounded-full shadow mr-2 w-8 h-8 object-cover object-center bg-gray-200" :src="account.avatar_url" />
+                    <AccountSelector />
 
                     <button @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
                         <span class="sr-only">Open menu</span>
@@ -53,7 +55,7 @@
                     <div class="pt-5 pb-6 px-5 sm:pb-8">
                         <div class="flex items-center justify-between">
                             <div>
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+                                <Logo class="h-8" />
                             </div>
                             <div class="-mr-2">
                                 <button @click.prevent="open = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -77,11 +79,8 @@
                             </a>
                         </div>
 
-                        <div class="mt-6">
-                            <div class="flex items-center justify-between">
-                                <AccountSelector @selected="open = false" />
-                                <UserDropdown />
-                            </div>
+                        <div class="mt-6 flex justify-end">
+                            <UserDropdown />
                         </div>
                     </div>
                 </div>

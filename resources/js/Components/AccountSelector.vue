@@ -1,5 +1,5 @@
 <template>
-    <div @click.prevent="open = false" v-show="open" class="hidden sm:block absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
+    <div @click.prevent="open = false" v-show="open" class="absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
 
     <div class="relative inline-block text-left">
         <div>
@@ -17,7 +17,7 @@
 
         <!-- Dropdown menu, show/hide based on menu state. -->
         <transition name="scale-fade">
-            <div v-show="open" class="origin-top-right absolute z-50 left-0 sm:left-auto sm:right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button-lg" tabindex="-1">
+            <div v-show="open" class="origin-top-right absolute z-50 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button-lg" tabindex="-1">
                 <div class="py-1" role="none">
 
                     <template v-for="account in user.accounts" :key="account.id">

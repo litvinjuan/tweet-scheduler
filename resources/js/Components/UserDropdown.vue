@@ -1,5 +1,5 @@
 <template>
-    <div @click.prevent="open = false" v-show="open" class="hidden sm:block absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
+    <div @click.prevent="open = false" v-show="open" class="absolute z-40 inset-0 top-0 left-0 w-screen h-screen"></div>
 
     <div class="relative inline-block text-left">
         <div>
