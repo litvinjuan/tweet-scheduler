@@ -44,7 +44,9 @@ class HandleInertiaRequests extends Middleware
             ],
             'user' => function () {
                 $user = \Auth::user();
-                $user->loadMissing('accounts');
+                if ($user) {
+                    $user->loadMissing('accounts');
+                }
                 return $user;
             },
             'account' => function () use ($request) {
