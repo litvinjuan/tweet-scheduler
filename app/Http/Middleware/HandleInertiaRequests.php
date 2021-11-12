@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -37,7 +38,21 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            //
+            'app' => [
+                'name' => config('app.name'),
+                'url' => config('app.url'),
+            ],
+            'user' => function () {
+                $user = \Auth::user();
+                $user->loadMissing('accounts');
+                return $user;
+            },
+            'account' => function () use ($request) {
+                $account = $request->route('account');
+                if (!$account) return null;
+                if ($account instanceof Account) return $account;
+                return \Auth::user()->accounts()->find($account);
+            },
         ]);
     }
 }

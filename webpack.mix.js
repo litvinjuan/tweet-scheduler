@@ -18,6 +18,8 @@ mix.postCss('resources/css/app.css', 'public/css', [
     require("tailwindcss"),
 ])
 
+mix.copyDirectory('resources/images', 'public/images')
+
 mix.alias({
     ziggy: path.resolve('vendor/tightenco/ziggy/dist/vue'),
-});
+})

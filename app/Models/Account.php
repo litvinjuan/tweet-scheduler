@@ -3,22 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @mixin IdeHelperUser
+ * @mixin IdeHelperAccount
  */
-class User extends Authenticatable
+class Account extends Model
 {
     use HasFactory;
-    use Notifiable;
 
     protected static $unguarded = true;
 
     protected $hidden = [
-        'remember_token',
+        'twitter_id',
+        'twitter_token',
+        'twitter_token_secret',
     ];
 
     protected static function boot()
@@ -30,8 +30,8 @@ class User extends Authenticatable
         });
     }
 
-    public function accounts()
+    public function user()
     {
-        return $this->hasMany(Account::class)->oldest();
+        return $this->belongsTo(User::class);
     }
 }
